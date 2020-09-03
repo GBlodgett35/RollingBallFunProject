@@ -13,16 +13,23 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    
+    public float timeRemaining = 10.0f;
     private float radius = 5.0f;
     private int count;
     private int numBlocks = 12;
-    public float speed = 0;
+    public float speed = 0.0f;
 
+    //Variables to hold references to different pieces of the game
     public GameObject prefab;
     public GameObject floorBlock1;
     public GameObject floorBlock2;
+
+    //Various text elements
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject loseTextObject;
+    public TextMeshProUGUI timer;
 
     List<GameObject> floorBlocks = new List<GameObject>();
 
@@ -56,7 +63,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         count = 0;
         setCountText();
-        winTextObject.SetActive(false);
+        //winTextObject.SetActive(false);
+        //loseTextObject.SetActive(true);
         //https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
         for (int i = 0; i < numBlocks; i++)
         {
@@ -124,23 +132,27 @@ public class PlayerController : MonoBehaviour
         }
         if(count >= numBlocks)
         {
-            //winTextObject.SetActive(true);
+            winTextObject.SetActive(true);
         }
     }
 
-    /*
-    private static Random rng = new Random();
-    int floorBlockCount = 0;
-    public static void Shuffle<T>(this IList<T> list)
+    private void Update()
     {
-        int n = list.Count;
-        while (n > 1)
+        if (timeRemaining > 0)
         {
-            n--;
-            int k = rng.Next(n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            timeRemaining -= Time.deltaTime;
+            timer.SetText(timeRemaining.ToString());
         }
-    }*/
+        else
+        {
+            timer.SetText("0");
+            for (int i = floorBlockCount; i < floorBlocks.Capacity; i++)
+            {
+                floorBlocks.ElementAt(i).SetActive(false);
+
+            }
+            loseTextObject.SetActive(true);
+        }
+    }
+
 }
