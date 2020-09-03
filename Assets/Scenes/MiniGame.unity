@@ -529,8 +529,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -706,11 +706,11 @@ RectTransform:
   m_Father: {fileID: 768096809}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -272.5, y: -112}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -30}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &560596044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 688263661}
   - component: {fileID: 688263663}
   - component: {fileID: 688263662}
+  - component: {fileID: 688263664}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -968,7 +969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce5b8f1045b4164e92f86ee89c53684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
   speed: 10
   prefab: {fileID: 151917262780574775, guid: 0660c9c614c4de04f933de4d4369c8b8, type: 3}
   floorBlock1: {fileID: 1174647638}
@@ -976,7 +976,6 @@ MonoBehaviour:
   countText: {fileID: 337549580}
   winTextObject: {fileID: 257152142}
   loseTextObject: {fileID: 1301808488}
-  timer: {fileID: 560596044}
 --- !u!114 &688263663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,6 +1006,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &688263664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688263656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9e0b85838ed45498f91bc527f29723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 688263656}
+  timer: {fileID: 560596044}
+  timeRemaining: 10
 --- !u!1 &734428434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,8 +1506,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

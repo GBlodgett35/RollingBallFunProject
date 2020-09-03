@@ -14,7 +14,6 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     
-    public float timeRemaining = 10.0f;
     private float radius = 5.0f;
     private int count;
     private int numBlocks = 12;
@@ -29,7 +28,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject loseTextObject;
-    public TextMeshProUGUI timer;
 
     List<GameObject> floorBlocks = new List<GameObject>();
 
@@ -116,7 +114,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
     }
@@ -136,23 +133,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void lostGame()
     {
-        if (timeRemaining > 0)
+        for (int i = floorBlockCount; i < floorBlocks.Capacity; i++)
         {
-            timeRemaining -= Time.deltaTime;
-            timer.SetText(timeRemaining.ToString());
-        }
-        else
-        {
-            timer.SetText("0");
-            for (int i = floorBlockCount; i < floorBlocks.Capacity; i++)
-            {
-                floorBlocks.ElementAt(i).SetActive(false);
+            floorBlocks.ElementAt(i).SetActive(false);
 
-            }
-            loseTextObject.SetActive(true);
         }
+        loseTextObject.SetActive(true);
     }
 
 }
