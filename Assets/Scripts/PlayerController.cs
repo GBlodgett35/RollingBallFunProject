@@ -129,8 +129,16 @@ public class PlayerController : MonoBehaviour
         }
         if(count >= numBlocks)
         {
-            winTextObject.SetActive(true);
+            wonGame();
         }
+    }
+
+    private void wonGame()
+    {
+        winTextObject.SetActive(true);
+        gameObject.SendMessage("stopTimer");
+
+        enabled = false;
     }
 
     private void lostGame()
@@ -141,6 +149,8 @@ public class PlayerController : MonoBehaviour
 
         }
         loseTextObject.SetActive(true);
+
+        enabled = false;
     }
 
 }
