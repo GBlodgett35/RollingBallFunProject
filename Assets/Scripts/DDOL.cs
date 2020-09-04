@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DDOL : MonoBehaviour
 {
-
+    public GameObject player;
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);

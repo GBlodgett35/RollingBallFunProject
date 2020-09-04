@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     //Various text elements
     public TextMeshProUGUI countText;
+
     public GameObject winTextObject;
     public GameObject loseTextObject;
 
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
     //Deletes a floor block
     int floorBlockCount = 0;
+    
+
     void DropFloorBlock()
     {
         floorBlocks.ElementAt(floorBlockCount).SetActive(false);
