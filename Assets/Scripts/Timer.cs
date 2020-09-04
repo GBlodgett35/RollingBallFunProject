@@ -12,7 +12,13 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        enabled = false;
+    }
+
+    void startTimer()
+    {
+        Debug.Log("Got here to Timer");
+        enabled = true;
     }
 
     void stopTimer()

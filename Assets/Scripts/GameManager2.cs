@@ -10,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -18,15 +19,16 @@ using UnityEngine;
  * Will contain generic functions that every scene will need
  * 
  */
-public static class GameManager 
+public class GameManager2 : ScriptableObject
 {
+    static Timer prefab = Resources.Load<Timer>("/Assets/Prefabs/Timer") as Timer;
+    //static Timer timerPrefab = ((GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/Timer.prefab")).GetComponent<Timer>();
     //https://www.loekvandenouweland.com/content/use-unity-button-to-change-between-scenes.html
     public static TextMeshProUGUI button;
-
-    public static Timer timer = new Timer();
+    public static Timer timer = Instantiate(prefab);
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
-    
+
 }
