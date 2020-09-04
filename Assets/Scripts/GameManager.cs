@@ -9,6 +9,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -19,10 +20,13 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
+    //https://www.loekvandenouweland.com/content/use-unity-button-to-change-between-scenes.html
+    public TextMeshProUGUI button;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Got here");
+        //SceneManager.LoadScene (sceneBuildIndex:/*Put the number here*/);
     }
 
     // Update is called once per frame
